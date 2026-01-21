@@ -63,6 +63,7 @@ public class AiService {
         @SuppressWarnings("unchecked")
         Map<String, Object> response = restTemplate.postForObject(url, request, Map.class);
         
-        return response != null ? (String) response.get("response") : "No response from Ollama";
+        String result = response != null ? (String) response.get("response") : "No response from Ollama";
+        return result.replace("*", "");
     }
 }
